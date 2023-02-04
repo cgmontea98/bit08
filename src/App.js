@@ -1,17 +1,16 @@
-import "./App.css";
 import { Header } from "./Components/Header";
 import { Main } from "./Components/Main";
 import { Aside } from "./Components/Aside";
+import { Section } from "./Components/Section";
 import { Footer } from "./Components/Footer";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { Section } from "./Components/Section";
 
 function App() {
   return (
     <>
-      <Container className="bg-dark p-5">
+      <Container fluid className="bg-dark py-5">
         <Row>
           <Col>
             <Header />
@@ -22,12 +21,12 @@ function App() {
             <Main />
             <Section />
           </Col>
-          <Col>
+          <Col className="col-12 col-lg-6 col-md-6 col-sm-12">
             <Aside />
           </Col>
         </Row>
-        <Row>
-          <Col>
+        <Row className="py-5">
+          <Col className="col-12 col-lg-12 col-md-12 col-sm-12">
             <Footer />
           </Col>
         </Row>

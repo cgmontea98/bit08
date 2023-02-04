@@ -11,10 +11,11 @@ export const Main = () => {
         <Row>
           <Col className="nav justify-content-center">
             <input
-              className="mx-3 fs-5 my-3 col-12"
+              type="text"
+              className="d-flex pt-3 fs-3 col-12 bg-warning bg-opacity-10 border border-warning border-start-0 rounded-end"
               placeholder="Agrega una peli"
             ></input>
-            <Button variant="warning" className="fs-5 d-flex">
+            <Button variant="outline-warning" className="fs-5 my-3">
               Añadir
             </Button>
           </Col>

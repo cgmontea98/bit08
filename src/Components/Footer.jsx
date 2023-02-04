@@ -16,7 +16,7 @@ export const Footer = () => {
         <Col className="p-3">
           <h2>
             Realizado por:{" "}
-            <Badge bg="warning" className="text-dark p-2 mx-4">
+            <Badge bg="warning" className="text-dark py-2 my-2 mx-0">
               Cristian Montealegre
             </Badge>
           </h2>
