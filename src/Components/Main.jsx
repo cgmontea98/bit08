@@ -7,11 +7,14 @@ import Button from "react-bootstrap/Button";
 export const Main = () => {
   return (
     <>
-      <Container className="text-center p-4">
-        <Row className="p-2">
-          <Col>
-            <input className="mx-3 fs-4 h-550" placeholder="Agrega una peli"></input>
-            <Button variant="warning" className="fs-5 my-2">
+      <Container className="text-center p-5">
+        <Row>
+          <Col className="nav justify-content-center">
+            <input
+              className="mx-3 fs-5 my-3 col-12"
+              placeholder="Agrega una peli"
+            ></input>
+            <Button variant="warning" className="fs-5 d-flex">
               Añadir
             </Button>
           </Col>

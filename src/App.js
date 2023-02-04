@@ -11,7 +11,7 @@ import { Section } from "./Components/Section";
 function App() {
   return (
     <>
-      <Container className="bg-dark p-5 align-self-center">
+      <Container className="bg-dark p-5">
         <Row>
           <Col>
             <Header />

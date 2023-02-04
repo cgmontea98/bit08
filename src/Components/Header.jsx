@@ -12,7 +12,9 @@ export const Header = () => {
     const MySwal = withReactContent(Swal);
 
     MySwal.fire({
-      title: <strong>Aquí puedes agregar todas las peli que te recomienden</strong>,
+      title: (
+        <strong>Aquí puedes agregar todas las peli que te recomienden</strong>
+      ),
       html: <i>Modificar títlo, marcas las vistas y eliminarlas..</i>,
       icon: "success",
     });

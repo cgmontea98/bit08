@@ -11,7 +11,7 @@ export const Aside = () => {
       <Row>
         <Col>
           <h2 className="text-warning m-4">
-            Listado de FILMS
+           FILMS
             <Badge bg="warning" className="text-dark p-2 mx-4">
               Completadas
             </Badge>
