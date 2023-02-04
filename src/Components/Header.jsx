@@ -9,7 +9,7 @@ export const Header = () => {
     <Container>
       <Row>
         <Col>
-          <h1 className="p-5 bg-dark border border-dark text-warning text-center">
+          <h1 className="p-5 text-warning text-center">
             TO DO LIST:
             <Badge bg="warning" className="text-dark p-2 mx-4">
               flims

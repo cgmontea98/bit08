@@ -10,7 +10,7 @@ import Col from "react-bootstrap/Col";
 function App() {
   return (
     <>
-      <Container>
+      <Container className="bg-dark p-5 align-self-center">
         <Row>
           <Col>
             <Header />

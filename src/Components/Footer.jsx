@@ -12,7 +12,7 @@ import { FcKey } from "react-icons/fc";
 
 export const Footer = () => {
   return (
-    <Container className="bg-dark border border-dark text-warning text-center">
+    <Container className="text-warning text-center">
       <Row>
         <Col className="p-3">
           <h2>Realizado por: Cristian Montealegre </h2>

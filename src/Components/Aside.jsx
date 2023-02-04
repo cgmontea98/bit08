@@ -8,7 +8,7 @@ export const Aside = () => {
   return (
     <Container className="text-center p-4">
       <Row>
-        <Col>Listado de Tareas Completadas</Col>
+        <Col><h2 className="text-warning m-4">Listado de Tareas Completadas</h2></Col>
       </Row>
       <Row className="p-2">
         <Col>

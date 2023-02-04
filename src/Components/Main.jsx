@@ -14,8 +14,10 @@ export const Main = () => {
       <Container className="text-center p-4">
         <Row className="p-2">
           <Col>
-            <input className="mx-3" placeholder="Agrega una peli"></input>
-            <Button variant="warning">Añadir</Button>
+            <input className="mx-3 fs-4 h-550" placeholder="Agrega una peli"></input>
+            <Button variant="warning" className="fs-5 my-2">
+              Añadir
+            </Button>
           </Col>
         </Row>
         <Row className="p-2">
@@ -23,7 +25,7 @@ export const Main = () => {
             <ListGroup as="ol" numbered>
               <ListGroup.Item
                 as="li"
-                className="my-2 border border-0"
+                className="my-2 border border-0 rounded-pill"
               >
                 El Gato con Botas
                 <div className="pt-3">
@@ -40,7 +42,7 @@ export const Main = () => {
               </ListGroup.Item>
               <ListGroup.Item
                 as="li"
-                className="my-2 border border-0"
+                className="my-2 border border-0 rounded-pill"
               >
                 Black Adam
                 <div className="pt-3">
@@ -57,7 +59,7 @@ export const Main = () => {
               </ListGroup.Item>
               <ListGroup.Item
                 as="li"
-                className="my-2 border border-0"
+                className="my-2 border border-0 rounded-pill"
               >
                 Encanto
                 <div className="pt-3">
