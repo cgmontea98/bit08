@@ -6,6 +6,7 @@ import { Footer } from "./Components/Footer";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { Section } from "./Components/Section";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Row>
           <Col>
             <Main />
+            <Section />
           </Col>
           <Col>
             <Aside />

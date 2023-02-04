@@ -7,27 +7,39 @@ import ButtonGroup from "react-bootstrap/ButtonGroup";
 import { TfiLinkedin } from "react-icons/tfi";
 import { GoMarkGithub } from "react-icons/go";
 import { FcKey } from "react-icons/fc";
-
-
+import Badge from "react-bootstrap/Badge";
 
 export const Footer = () => {
   return (
     <Container className="text-warning text-center">
       <Row>
         <Col className="p-3">
-          <h2>Realizado por: Cristian Montealegre </h2>
+          <h2>
+            Realizado por:{" "}
+            <Badge bg="warning" className="text-dark p-2 mx-4">
+              Cristian Montealegre
+            </Badge>
+          </h2>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
           <ButtonGroup aria-label="Basic example">
             <Button variant="secondary">
               <a href="https://www.linkedin.com/in/cgmontea98/">
-                <TfiLinkedin className="fs-3"/>
+                <TfiLinkedin className="fs-3" />
               </a>
             </Button>
-            <Button variant="secondary"><a href="https://github.com/cgmontea98">
-                <GoMarkGithub className="fs-3"/>
-              </a></Button>
-            <Button variant="secondary"><a href="https://cgmontea98.github.io/bit07me/">
-                <FcKey className="fs-3"/>
-              </a></Button>
+            <Button variant="secondary">
+              <a href="https://github.com/cgmontea98">
+                <GoMarkGithub className="fs-3" />
+              </a>
+            </Button>
+            <Button variant="secondary">
+              <a href="https://cgmontea98.github.io/bit07me/">
+                <FcKey className="fs-3" />
+              </a>
+            </Button>
           </ButtonGroup>
         </Col>
       </Row>
