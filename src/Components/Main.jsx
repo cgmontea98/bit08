@@ -4,6 +4,9 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import ListGroup from "react-bootstrap/ListGroup";
+import { AiFillEdit } from "react-icons/ai";
+import { AiOutlineCheck } from "react-icons/ai";
+import { AiTwotoneRest } from "react-icons/ai";
 
 export const Main = () => {
   return (
@@ -11,7 +14,7 @@ export const Main = () => {
       <Container className="text-center p-4">
         <Row className="p-2">
           <Col>
-            <input className="mx-3"></input>
+            <input className="mx-3" placeholder="Agrega una peli"></input>
             <Button variant="warning">Añadir</Button>
           </Col>
         </Row>
@@ -20,30 +23,54 @@ export const Main = () => {
             <ListGroup as="ol" numbered>
               <ListGroup.Item
                 as="li"
-                className="my-2 border border-info rounded-pill"
+                className="my-2 border border-0"
               >
                 El Gato con Botas
-                <Button variant="primary mx-1">Modificar</Button>
-            <Button variant="success mx-1">Completado</Button>
-            <Button variant="danger mx-1">Eliminar</Button>
+                <div className="pt-3">
+                  <Button variant="primary mx-1">
+                    <AiFillEdit />
+                  </Button>
+                  <Button variant="success mx-1">
+                    <AiOutlineCheck />
+                  </Button>
+                  <Button variant="danger mx-1">
+                    <AiTwotoneRest />
+                  </Button>
+                </div>
               </ListGroup.Item>
               <ListGroup.Item
                 as="li"
-                className="my-2 border border-info rounded-pill"
+                className="my-2 border border-0"
               >
                 Black Adam
-                <Button variant="primary mx-1">Modificar</Button>
-            <Button variant="success mx-1">Completado</Button>
-            <Button variant="danger mx-1">Eliminar</Button>
+                <div className="pt-3">
+                  <Button variant="primary mx-1">
+                    <AiFillEdit />
+                  </Button>
+                  <Button variant="success mx-1">
+                    <AiOutlineCheck />
+                  </Button>
+                  <Button variant="danger mx-1">
+                    <AiTwotoneRest />
+                  </Button>
+                </div>
               </ListGroup.Item>
               <ListGroup.Item
                 as="li"
-                className="my-2 border border-info rounded-pill"
+                className="my-2 border border-0"
               >
                 Encanto
-                <Button variant="primary mx-1">Modificar</Button>
-            <Button variant="success mx-1">Completado</Button>
-            <Button variant="danger mx-1">Eliminar</Button>
+                <div className="pt-3">
+                  <Button variant="primary mx-1">
+                    <AiFillEdit />
+                  </Button>
+                  <Button variant="success mx-1">
+                    <AiOutlineCheck />
+                  </Button>
+                  <Button variant="danger mx-1">
+                    <AiTwotoneRest />
+                  </Button>
+                </div>
               </ListGroup.Item>
             </ListGroup>
           </Col>

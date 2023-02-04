@@ -1,6 +1,4 @@
-import logo from "./logo.svg";
 import "./App.css";
-import Button from "react-bootstrap/Button";
 import { Header } from "./Components/Header";
 import { Main } from "./Components/Main";
 import { Aside } from "./Components/Aside";
@@ -22,8 +20,6 @@ function App() {
           <Col>
             <Main />
           </Col>
-        </Row>
-        <Row>
           <Col>
             <Aside />
           </Col>

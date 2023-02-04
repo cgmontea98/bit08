@@ -7,15 +7,17 @@ import ListGroup from "react-bootstrap/ListGroup";
 export const Aside = () => {
   return (
     <Container className="text-center p-4">
+      <Row>
+        <Col>Listado de Tareas Completadas</Col>
+      </Row>
       <Row className="p-2">
         <Col>
-        <ListGroup as="ol" numbered>
-              <ListGroup.Item
-                as="li"
-                className="m-2 border border-info"
-              >
-              </ListGroup.Item>
-            </ListGroup>
+          <ListGroup as="ol" numbered>
+            <ListGroup.Item
+              as="li"
+              className="m-2 border border-info"
+            ></ListGroup.Item>
+          </ListGroup>
         </Col>
       </Row>
     </Container>
