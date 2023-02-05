@@ -1,6 +1,6 @@
 # CRUD 
 
-Este proyecto contiene la primera práctica sobre lo visto en React basics. Se ha usado React-Bootstrap para temas de diseño; apoyado con React-Icon. Este proyecto contiene un CRUD sobre FILMS, donde, como tal puede: crear, leer, actualizar y eliminar sobre un listado de películas que le recomienden. 
+Este proyecto contiene la primera práctica sobre lo visto en React basics. Se ha usado React-Bootstrap para temas de diseño; apoyado con React-Icon, SweetAlert y uuid. Este proyecto contiene un CRUD sobre FILMS, donde, como tal puede: crear, leer, actualizar y eliminar sobre un listado de películas que le recomienden. 
 
 ### (Cristian G. Montealegre)
 

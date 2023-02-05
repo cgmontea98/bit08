@@ -10,12 +10,10 @@ import { useEffect, useState } from "react";
 
 function App() {
   /*Parte de JS donde se reciben datos o lista de tareas que se le asignaran a los componentes*/
-  const [task, setTask] = useState({ id: null, name: "", completed: false });
+  const [task, setTask] = useState({ id: null, name: "" });
   const [tasks, setTasks] = useState([]);
-  /* vigilante de cambios asignados de objetos aplicados a funciones especificas. Cuando se da click en add agregara un arreglo por cada click*/
-  useEffect(() => {
-    console.log(tasks);
-  }, [tasks]);
+  const [comp, setComp] = useState([]);
+
   /*Parte de HTML para que el navegador lea lo que hay aquí y se redenriza*/
   return (
     <>
@@ -33,10 +31,24 @@ function App() {
               tasks={tasks}
               setTasks={setTasks}
             />
-            <Section tasks={tasks} />
+            <Section
+              task={task}
+              setTask={setTask}
+              tasks={tasks}
+              setTasks={setTasks}
+              comp={comp}
+              setComp={setComp}
+            />
           </Col>
           <Col className="col-12 col-lg-6 col-md-6 col-sm-12">
-            <Aside />
+            <Aside
+              task={task}
+              setTask={setTask}
+              tasks={tasks}
+              setTasks={setTasks}
+              comp={comp}
+              setComp={setComp}
+            />
           </Col>
         </Row>
         <Row className="py-5">

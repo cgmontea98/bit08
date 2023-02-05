@@ -13,6 +13,7 @@ export const Main = ({ task, setTask, tasks, setTasks }) => {
 
   const handleAdd = () => {
     setTasks([...tasks, task]);
+    setTask({ id: null, name: "", });
   };
 
   return (
@@ -24,6 +25,7 @@ export const Main = ({ task, setTask, tasks, setTasks }) => {
               type="text"
               className="d-flex pt-3 fs-3 col-12 bg-warning bg-opacity-10 border border-warning border-start-0 rounded-end"
               placeholder="Agrega una peli"
+              value={task.name}
               onChange={handleInputFilm}
             ></input>
             <Button
