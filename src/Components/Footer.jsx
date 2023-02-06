@@ -26,17 +26,29 @@ export const Footer = () => {
         <Col>
           <ButtonGroup aria-label="Basic example">
             <Button variant="secondary">
-              <a href="https://www.linkedin.com/in/cgmontea98/">
+              <a
+                href="https://www.linkedin.com/in/cgmontea98/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <TfiLinkedin className="fs-3" />
               </a>
             </Button>
             <Button variant="secondary">
-              <a href="https://github.com/cgmontea98">
+              <a
+                href="https://github.com/cgmontea98"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <GoMarkGithub className="fs-3" />
               </a>
             </Button>
             <Button variant="secondary">
-              <a href="https://cgmontea98.github.io/bit07me/">
+              <a
+                href="https://cgmontea98.github.io/bit07me/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <FcKey className="fs-3" />
               </a>
             </Button>

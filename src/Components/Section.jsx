@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -15,9 +15,53 @@ export const Section = ({ tasks, setTasks, setComp }) => {
         completedArr.push(element);
       }
       setComp(completedArr);
-      setTasks(tasks)
     }
   }, [tasks]);
+
+  const handleEdit = () => {};
+
+  const handleDelete = (id) => {
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: "btn btn-success",
+        cancelButton: "btn btn-danger",
+      },
+      buttonsStyling: false,
+    });
+    swalWithBootstrapButtons
+      .fire({
+        title: "¿Estás seguro de eliminar la peli?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Sí",
+        cancelButtonText: "No",
+        reverseButtons: true,
+      })
+      .then((result) => {
+        if (result.isConfirmed) {
+          swalWithBootstrapButtons.fire(
+            "Eliminada!",
+            "La peli ya no esta en tus pendientes",
+            "success"
+          );
+
+          const eliminarArr = [];
+          for (const elements of tasks) {
+            if (elements.completed === tasks) {
+              const ind = eliminarArr.splice(elements, id);
+              eliminarArr[ind].completed = false;
+            }
+            setTasks(eliminarArr);
+          }
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
+          swalWithBootstrapButtons.fire(
+            "Cancelled",
+            "Your imaginary file is safe :)",
+            "error"
+          );
+        }
+      });
+  };
 
   const handleComplete = (id) => {
     Swal.fire({
@@ -40,12 +84,12 @@ export const Section = ({ tasks, setTasks, setComp }) => {
     });
   };
 
-  const elements = tasks.map((task) => (
+  const elements = tasks.map((task, i) => (
     <ListGroup as="ol" numbered key={task.id}>
       <ListGroup.Item as="li" className="my-2 border border-0 rounded-pill">
         <label className="fs-4">{task.name}</label>
         <div className="d-flex justify-content-end">
-          <Button variant="primary mx-1">
+          <Button variant="primary mx-1" onClick={() => handleEdit(task.id)}>
             <AiFillEdit />
           </Button>
           <Button
@@ -54,7 +98,7 @@ export const Section = ({ tasks, setTasks, setComp }) => {
           >
             <AiOutlineCheck />
           </Button>
-          <Button variant="danger mx-1">
+          <Button variant="danger mx-1" onClick={() => handleDelete(i)}>
             <AiTwotoneRest />
           </Button>
         </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -6,9 +6,50 @@ import Badge from "react-bootstrap/Badge";
 import ListGroup from "react-bootstrap/ListGroup";
 import Button from "react-bootstrap/Button";
 import { AiOutlineCloudUpload, AiTwotoneRest } from "react-icons/ai";
+import { useEffect } from "react";
+import Swal from "sweetalert2";
 
-export const Aside = ({ comp, task, tasks, setTask }) => {
-  
+export const Aside = ({ comp, setComp }) => {
+  const handleDelete2 = () => {
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: "btn btn-success",
+        cancelButton: "btn btn-danger",
+      },
+      buttonsStyling: false,
+    });
+    swalWithBootstrapButtons
+      .fire({
+        title: "¿Estás seguro de eliminar la peli?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Sí",
+        cancelButtonText: "No",
+        reverseButtons: true,
+      })
+      .then((result) => {
+        if (result.isConfirmed) {
+          swalWithBootstrapButtons.fire(
+            "Eliminada!",
+            "La peli ya no esta en tus pendientes",
+            "success"
+          );
+          const eliminarArr = [];
+          for (const list of comp) {
+            if (list.completed === true) {
+              eliminarArr.shift(list);
+            }
+            setComp(eliminarArr);
+          }
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
+          swalWithBootstrapButtons.fire(
+            "Cancelled",
+            "Your imaginary file is safe :)",
+            "error"
+          );
+        }
+      });
+  };
 
   const list = comp.map((task) => (
     <ListGroup as="ol" numbered key={task.id} className="py-2">
@@ -17,7 +58,7 @@ export const Aside = ({ comp, task, tasks, setTask }) => {
         <Button variant="primary mx-1">
           <AiOutlineCloudUpload />
         </Button>
-        <Button variant="danger mx-1">
+        <Button variant="danger mx-1" onClick={() => handleDelete2(task.id)}>
           <AiTwotoneRest />
         </Button>
       </div>
