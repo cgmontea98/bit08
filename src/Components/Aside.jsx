@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -7,32 +7,17 @@ import ListGroup from "react-bootstrap/ListGroup";
 import Button from "react-bootstrap/Button";
 import { AiOutlineCloudUpload, AiTwotoneRest } from "react-icons/ai";
 
-export const Aside = ({ comp, setComp, task, tasks, setTask }) => {
-  useEffect(() => {
-    const completedArr = [];
-    for (const element of tasks) {
-      if (element.completed === true) {
-        completedArr.push(element);
-      }
-      setTask(completedArr);
-    }
-  }, [tasks]);
-
-  const handleUp = () => {
-    const arr = [...task];
-    const i = arr.findIndex((item) => item.id === id);
-    arr[i].completed = !arr[i].completed;
-    setTask(arr);
-  };
+export const Aside = ({ comp, task, tasks, setTask }) => {
+  
 
   const list = comp.map((task) => (
-    <ListGroup as="ol" numbered key={task.id}>
+    <ListGroup as="ol" numbered key={task.id} className="py-2">
       <ListGroup.Item as="li">{task.name}</ListGroup.Item>
       <div className="d-flex justify-content-end">
         <Button variant="primary mx-1">
           <AiOutlineCloudUpload />
         </Button>
-        <Button variant="danger mx-1" onClick={() => handleUp(task.id)}>
+        <Button variant="danger mx-1">
           <AiTwotoneRest />
         </Button>
       </div>

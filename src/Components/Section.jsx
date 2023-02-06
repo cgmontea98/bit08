@@ -1,16 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import ListGroup from "react-bootstrap/ListGroup";
 import Button from "react-bootstrap/Button";
 import { AiFillEdit, AiOutlineCheck, AiTwotoneRest } from "react-icons/ai";
-/* import Swal from "sweetalert2"; */
-import { Aside } from "./Aside";
+import Swal from "sweetalert2";
 
-export const Section = ({ tasks, setTasks, task, setTask }) => {
-  const [comp, setComp] = useState([]);
-
+export const Section = ({ tasks, setTasks, setComp }) => {
   useEffect(() => {
     const completedArr = [];
     for (const element of tasks) {
@@ -18,15 +15,12 @@ export const Section = ({ tasks, setTasks, task, setTask }) => {
         completedArr.push(element);
       }
       setComp(completedArr);
+      setTasks(tasks)
     }
   }, [tasks]);
 
   const handleComplete = (id) => {
-    const arr = [...tasks];
-    const i = arr.findIndex((item) => item.id === id);
-    arr[i].completed = !arr[i].completed;
-    setTasks(arr);
-    /* Swal.fire({
+    Swal.fire({
       title: "¿Todo listo?",
       text: "Si ya viste el film, confirmalo aquí",
       showDenyButton: true,
@@ -36,10 +30,14 @@ export const Section = ({ tasks, setTasks, task, setTask }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire("Completado!", "", "success");
+        const arr = [...tasks];
+        const i = arr.findIndex((item) => item.id === id);
+        arr[i].completed = !arr[i].completed;
+        setTasks(arr);
       } else if (result.isDenied) {
         Swal.fire("No Completado", "", "info");
       }
-    }); */
+    });
   };
 
   const elements = tasks.map((task) => (
@@ -70,30 +68,7 @@ export const Section = ({ tasks, setTasks, task, setTask }) => {
         <Row>
           <Col className="text-center">{elements}</Col>
         </Row>
-        <Row>
-          <Col>
-            <Aside
-              comp={comp}
-              setComp={setComp}
-              task={task}
-              tasks={tasks}
-              setTask={setTask}
-            />
-          </Col>
-        </Row>
       </Container>
     </>
   );
 };
-/* Swal.fire({
-  title: "¿Todo listo?",
-  text: "Si ya viste el film, confirmalo aquí",
-  showDenyButton: true,
-  showCancelButton: true,
-  confirmButtonText: "Save",
-  denyButtonText: `Don't save`,
-}).then((result) => {
-
-  if (result.isConfirmed) { Swal.fire("Completado!", "", "success");} else if (result.isDenied) {
-    Swal.fire("No Completado", "", "info");
-  }); */
