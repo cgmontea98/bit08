@@ -13,7 +13,7 @@ export const Main = ({ task, setTask, tasks, setTasks }) => {
 
   const handleAdd = () => {
     setTasks([...tasks, task]);
-    setTask({ id: null, name: "", });
+    setTask({ id: null, name: "" });
   };
 
   return (
