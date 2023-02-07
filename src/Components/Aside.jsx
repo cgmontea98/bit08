@@ -52,9 +52,6 @@ export const Aside = ({ comp, setComp, tasks, task }) => {
     <ListGroup as="ol" numbered key={task.id} tasks={completedTasks} className="py-2">
       <ListGroup.Item as="li">{task.name}</ListGroup.Item>
       <div className="d-flex justify-content-end">
-        <Button variant="primary mx-1">
-          <AiOutlineCloudUpload />
-        </Button>
         <Button variant="danger mx-1" onClick={() => handleDelete2(task.id)}>
           <AiTwotoneRest />
         </Button>
