@@ -7,8 +7,24 @@ import Button from "react-bootstrap/Button";
 import { AiFillEdit, AiOutlineCheck, AiTwotoneRest } from "react-icons/ai";
 import Swal from "sweetalert2";
 
-export const Section = ({ tasks, setTasks, setComp }) => {
-  const handleEdit = () => {};
+export const Section = ({ tasks, task, setTasks, setTask, setComp }) => {
+  const handleEdit = (index) => {
+    Swal.fire({
+      title: "Multiple inputs",
+      html: '<input id="swal-input1">',
+      focusConfirm: false,
+      preConfirm: () => {
+        return [document.getElementById("swal-input1").value];
+      },
+    }).then((formValues) => {
+      if (formValues.isConfirmed) {
+        const editArr = [...tasks];
+        editArr.splice(index, 1, document.getElementById("swal-input1").value);
+        setTasks(editArr);
+        console.log(editArr);
+      }
+    });
+  };
 
   const handleDelete = (index) => {
     const swalWithBootstrapButtons = Swal.mixin({
@@ -85,7 +101,7 @@ export const Section = ({ tasks, setTasks, setComp }) => {
       <ListGroup.Item as="li" className="my-2 border border-0 rounded-pill">
         <label className="fs-4">{task.name}</label>
         <div className="d-flex justify-content-end">
-          <Button variant="primary mx-1" onClick={() => handleEdit(task.id)}>
+          <Button variant="primary mx-1" onClick={() => handleEdit()}>
             <AiFillEdit />
           </Button>
           <Button
