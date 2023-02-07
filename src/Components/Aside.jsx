@@ -8,7 +8,8 @@ import Button from "react-bootstrap/Button";
 import { AiOutlineCloudUpload, AiTwotoneRest } from "react-icons/ai";
 import Swal from "sweetalert2";
 
-export const Aside = ({ comp, setComp }) => {
+export const Aside = ({ comp, setComp, tasks, task }) => {
+  const completedTasks = tasks.filter((task) => task.completed);
   const handleDelete2 = (index) => {
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
@@ -48,7 +49,7 @@ export const Aside = ({ comp, setComp }) => {
   };
 
   const list = comp.map((task) => (
-    <ListGroup as="ol" numbered key={task.id} className="py-2">
+    <ListGroup as="ol" numbered key={task.id} tasks={completedTasks} className="py-2">
       <ListGroup.Item as="li">{task.name}</ListGroup.Item>
       <div className="d-flex justify-content-end">
         <Button variant="primary mx-1">
@@ -75,7 +76,9 @@ export const Aside = ({ comp, setComp }) => {
           </Col>
         </Row>
         <Row className="p-2">
-          <Col>{list}</Col>
+          <Col>
+            {list}
+          </Col>
         </Row>
       </Container>
     </>

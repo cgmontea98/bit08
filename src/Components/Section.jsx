@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -8,18 +8,21 @@ import { AiFillEdit, AiOutlineCheck, AiTwotoneRest } from "react-icons/ai";
 import Swal from "sweetalert2";
 
 export const Section = ({ tasks, task, setTasks, setTask, setComp }) => {
-  const handleEdit = (index) => {
+  const pendingTasks = tasks.filter((task) => !task.completed);
+  const handleEdit = (task) => {
     Swal.fire({
       title: "Multiple inputs",
       html: '<input id="swal-input1">',
       focusConfirm: false,
+      showCancelButton: true,
       preConfirm: () => {
-        return [document.getElementById("swal-input1").value];
+        return { name: document.getElementById("swal-input1").value };
       },
-    }).then((formValues) => {
-      if (formValues.isConfirmed) {
+    }).then((result) => {
+      if (result.value) {
         const editArr = [...tasks];
-        editArr.splice(index, 1, document.getElementById("swal-input1").value);
+        const index = editArr.indexOf(task);
+        editArr[index].name = document.getElementById("swal-input1").value;
         setTasks(editArr);
         console.log(editArr);
       }
@@ -97,11 +100,11 @@ export const Section = ({ tasks, task, setTasks, setTask, setComp }) => {
   };
 
   const elements = tasks.map((task, i) => (
-    <ListGroup as="ol" numbered key={task.id}>
+    <ListGroup as="ol" numbered key={task.id} tasks={pendingTasks}>
       <ListGroup.Item as="li" className="my-2 border border-0 rounded-pill">
         <label className="fs-4">{task.name}</label>
         <div className="d-flex justify-content-end">
-          <Button variant="primary mx-1" onClick={() => handleEdit()}>
+          <Button variant="primary mx-1" onClick={() => handleEdit(task)}>
             <AiFillEdit />
           </Button>
           <Button
@@ -122,7 +125,9 @@ export const Section = ({ tasks, task, setTasks, setTask, setComp }) => {
     <>
       <Container>
         <Row>
-          <Col className="text-center">{elements}</Col>
+          <Col className="text-center">
+            {elements}
+          </Col>
         </Row>
       </Container>
     </>

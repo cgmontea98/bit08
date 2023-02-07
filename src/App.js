@@ -13,7 +13,7 @@ function App() {
   const [task, setTask] = useState({ id: null, name: "", completed: false });
   const [tasks, setTasks] = useState([]);
   const [comp, setComp] = useState([]);
-  
+
   /*Parte de HTML para que el navegador lea lo que hay aquí y se redenriza*/
   return (
     <>
@@ -37,11 +37,10 @@ function App() {
               task={task}
               setTask={setTask}
               setComp={setComp}
-
             />
           </Col>
           <Col className="col-12 col-lg-6 col-md-6 col-sm-12">
-            <Aside comp={comp} setComp={setComp} />
+            <Aside comp={comp} setComp={setComp} task={task} tasks={tasks}/>
           </Col>
         </Row>
         <Row className="py-5">
