@@ -8,19 +8,9 @@ import { AiFillEdit, AiOutlineCheck, AiTwotoneRest } from "react-icons/ai";
 import Swal from "sweetalert2";
 
 export const Section = ({ tasks, setTasks, setComp }) => {
-  useEffect(() => {
-    const completedArr = [];
-    for (const element of tasks) {
-      if (element.completed === true) {
-        completedArr.push(element);
-      }
-      setComp(completedArr);
-    }
-  }, [tasks]);
-
   const handleEdit = () => {};
 
-  const handleDelete = (id) => {
+  const handleDelete = (index) => {
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
         confirmButton: "btn btn-success",
@@ -44,15 +34,10 @@ export const Section = ({ tasks, setTasks, setComp }) => {
             "La peli ya no esta en tus pendientes",
             "success"
           );
-
-          const eliminarArr = [];
-          for (const elements of tasks) {
-            if (elements.completed === tasks) {
-              const ind = eliminarArr.splice(elements, id);
-              eliminarArr[ind].completed = false;
-            }
-            setTasks(eliminarArr);
-          }
+          //FUNCIONALIDAD
+          const eliminarArr = [...tasks];
+          eliminarArr.splice(index, 1);
+          setTasks(eliminarArr);
         } else if (result.dismiss === Swal.DismissReason.cancel) {
           swalWithBootstrapButtons.fire(
             "Cancelled",
@@ -62,6 +47,16 @@ export const Section = ({ tasks, setTasks, setComp }) => {
         }
       });
   };
+
+  useEffect(() => {
+    const completedArr = [];
+    for (const element of tasks) {
+      if (element.completed === true) {
+        completedArr.push(element);
+      }
+      setComp(completedArr);
+    }
+  }, [tasks]);
 
   const handleComplete = (id) => {
     Swal.fire({
@@ -74,6 +69,7 @@ export const Section = ({ tasks, setTasks, setComp }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire("Completado!", "", "success");
+        //FUNCIONALIDAD
         const arr = [...tasks];
         const i = arr.findIndex((item) => item.id === id);
         arr[i].completed = !arr[i].completed;

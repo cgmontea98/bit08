@@ -6,11 +6,10 @@ import Badge from "react-bootstrap/Badge";
 import ListGroup from "react-bootstrap/ListGroup";
 import Button from "react-bootstrap/Button";
 import { AiOutlineCloudUpload, AiTwotoneRest } from "react-icons/ai";
-import { useEffect } from "react";
 import Swal from "sweetalert2";
 
 export const Aside = ({ comp, setComp }) => {
-  const handleDelete2 = () => {
+  const handleDelete2 = (index) => {
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
         confirmButton: "btn btn-success",
@@ -34,13 +33,10 @@ export const Aside = ({ comp, setComp }) => {
             "La peli ya no esta en tus pendientes",
             "success"
           );
-          const eliminarArr = [];
-          for (const list of comp) {
-            if (list.completed === true) {
-              eliminarArr.shift(list);
-            }
-            setComp(eliminarArr);
-          }
+          //FUNCIONALIDAD
+          const eliminarArr = [...comp];
+          eliminarArr.splice(index, 1);
+          setComp(eliminarArr);
         } else if (result.dismiss === Swal.DismissReason.cancel) {
           swalWithBootstrapButtons.fire(
             "Cancelled",
