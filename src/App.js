@@ -31,16 +31,10 @@ function App() {
               tasks={tasks}
               setTasks={setTasks}
             />
-            <Section
-              tasks={tasks}
-              setTasks={setTasks}
-              task={task}
-              setTask={setTask}
-              setComp={setComp}
-            />
+            <Section tasks={tasks} setTasks={setTasks} setComp={setComp} />
           </Col>
           <Col className="col-12 col-lg-6 col-md-6 col-sm-12">
-            <Aside comp={comp} setComp={setComp} task={task} tasks={tasks}/>
+            <Aside comp={comp} setComp={setComp} tasks={tasks} />
           </Col>
         </Row>
         <Row className="py-5">

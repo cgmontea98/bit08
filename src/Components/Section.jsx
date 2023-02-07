@@ -7,11 +7,11 @@ import Button from "react-bootstrap/Button";
 import { AiFillEdit, AiOutlineCheck, AiTwotoneRest } from "react-icons/ai";
 import Swal from "sweetalert2";
 
-export const Section = ({ tasks, task, setTasks, setTask, setComp }) => {
+export const Section = ({ tasks, setTasks, setComp }) => {
   const pendingTasks = tasks.filter((task) => !task.completed);
   const handleEdit = (task) => {
     Swal.fire({
-      title: "Multiple inputs",
+      title: "Vamos a modificar el título aquí...",
       html: '<input id="swal-input1">',
       focusConfirm: false,
       showCancelButton: true,
@@ -125,9 +125,7 @@ export const Section = ({ tasks, task, setTasks, setTask, setComp }) => {
     <>
       <Container>
         <Row>
-          <Col className="text-center">
-            {elements}
-          </Col>
+          <Col className="text-center">{elements}</Col>
         </Row>
       </Container>
     </>

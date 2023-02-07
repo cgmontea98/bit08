@@ -5,10 +5,10 @@ import Col from "react-bootstrap/Col";
 import Badge from "react-bootstrap/Badge";
 import ListGroup from "react-bootstrap/ListGroup";
 import Button from "react-bootstrap/Button";
-import { AiOutlineCloudUpload, AiTwotoneRest } from "react-icons/ai";
+import { AiTwotoneRest } from "react-icons/ai";
 import Swal from "sweetalert2";
 
-export const Aside = ({ comp, setComp, tasks, task }) => {
+export const Aside = ({ comp, setComp, tasks }) => {
   const completedTasks = tasks.filter((task) => task.completed);
   const handleDelete2 = (index) => {
     const swalWithBootstrapButtons = Swal.mixin({
@@ -49,7 +49,13 @@ export const Aside = ({ comp, setComp, tasks, task }) => {
   };
 
   const list = comp.map((task) => (
-    <ListGroup as="ol" numbered key={task.id} tasks={completedTasks} className="py-2">
+    <ListGroup
+      as="ol"
+      numbered
+      key={task.id}
+      tasks={completedTasks}
+      className="py-2"
+    >
       <ListGroup.Item as="li">{task.name}</ListGroup.Item>
       <div className="d-flex justify-content-end">
         <Button variant="danger mx-1" onClick={() => handleDelete2(task.id)}>
@@ -73,9 +79,7 @@ export const Aside = ({ comp, setComp, tasks, task }) => {
           </Col>
         </Row>
         <Row className="p-2">
-          <Col>
-            {list}
-          </Col>
+          <Col>{list}</Col>
         </Row>
       </Container>
     </>
